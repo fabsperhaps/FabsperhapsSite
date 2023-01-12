@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>PayPal-ähnliche Website</title>
+</head> 
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>PayPal-ähnliche Website</title> 
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> 
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+nav {
+    background-color: #0070ba;
+    color: #ffffff;
+    padding: 10px;
+    text-align: right;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+form {
+    margin: 30px auto;
+    width: 300px;
+    text-align: center;
+}
+
+form input[type="text"], form input[type="email"], form input[type="password"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+form input[type="submit"], form input[type="button"] {
+    background-color: #0070ba;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    margin: 30px auto;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    border: 1px solid #dddddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: #0070ba;
+    color: #ffffff;
+}
+
+#logo {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 100px;
+    height: auto;
+}
+</style>
+</head> 
+<body> 
+
+<img id="logo" src="img/logo.png" alt="Paypal logo">
+</body>
+
+<script type="text/javascript" src="transactions.js"></script>
+
+<h2 id="transaktionen">Transaktionshistorie</h2> 
+<table id="transactions"> 
+<tr> 
+<th>Datum</th> 
+<th>Name des Empfängers</th> 
+<th>Betrag</th> 
+</tr> 
+</table>
+
+<h2 id="erstellen">Fake-Transaktion erstellen</h2> 
+<form> 
+Name des Empfängers: <input type="text" id="empfänger"><br><br> 
+Betrag: <input type="text" id="betrag"><br><br> 
+<input type="button" value="Transaktion erstellen" onclick="createTransaction()"> 
+</form> 
+
+<script>
+function createTransaction() {
+    var empfänger = document.getElementById("empfänger").value;
+    var betrag = document.getElementById("betrag").value;
+    var date = new Date();
+    var table = document.getElementById("transactions");
+    var newRow = table.insertRow(-1);
+    var dateCell = newRow.insertCell(0);
+    var empfängerCell = newRow.insertCell(1);
+    var betragCell = newRow.insertCell(2);
+    dateCell.innerHTML = date.toLocaleDateString();
+    empfängerCell.innerHTML = empfänger;
+    betragCell.innerHTML = betrag;
+    document.getElementById("empfänger").value = "";
+    document.getElementById("betrag").value = "";
+}
+</script>
+</body> 
+</html> 
