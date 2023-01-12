@@ -5,7 +5,8 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="copyright">Copyright Fabsperhaps 2023©</div>
+</div><a href="https://www.fabsperhaps.netlify.app" class="copyright">Copyright Fabsperhaps 2023©</a>
+
   <form id="love-test-form">
     <label for="name1">Name 1:</label>
     <input type="text" id="name1" name="name1">
@@ -23,8 +24,6 @@
       var name1 = document.getElementById("name1").value;
       var name2 = document.getElementById("name2").value;
       var loveScore = Math.floor(Math.random() * 100);
-      if (name1 === "Moritz" && name2 === "Bartosz") {
-        loveScore = 100;
       }
       document.getElementById("love-score").innerHTML = name1 + " and " + name2 + " have a love score of " + loveScore + "%";
     }
