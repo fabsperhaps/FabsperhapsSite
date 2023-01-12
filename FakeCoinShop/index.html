@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fake Coin Shop</title>
+	<link rel="stylesheet" href="style.css">
+<script>
+function popup() {
+  window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0", "popup", "width=600,height=400");
+}
+</script>
+  </head>
+  <body>
+<button onclick="popup()">Klick hier für das Video</button>
+    <h1>Willkommen im Fake Coin Shop</h1>
+
+    <div id="products">
+      <div class="product">
+        <h2>Produkt 1</h2>
+        <p>Preis: 10 Fake Coins</p>
+        <button onclick="buyProduct(1)">Kaufen</button>
+      </div>
+      <div class="product">
+        <h2>Produkt 2</h2>
+        <p>Preis: 20 Fake Coins</p>
+        <button onclick="buyProduct(2)">Kaufen</button>
+      </div>
+    </div>
+
+    <p id="message"></p>
+    <p>Aktueller Kontostand: <span id="balance">100</span> Fake Coins</p>
+
+    <script>
+      let balance = 100;
+
+      function buyProduct(productId) {
+        // Preise für die Produkte festlegen
+        const prices = {
+          1: 10,
+          2: 20
+        };
+
+        // Überprüfen, ob der Nutzer genug Fake Coins hat
+        if (balance < prices[productId]) {
+          displayMessage("Du hast nicht genug Fake Coins!");
+          return;
+        }
+
+        // Abzug des Preises von der Kontostands des Nutzers
+        balance -= prices[productId];
+        updateBalance();
+
+        // Anzeige einer Nachricht, dass der Kauf erfolgreich war
+        displayMessage("Kauf erfolgreich! Dein neuer Kontostand beträgt " + balance + " Fake Coins.");
+      }
+
+      function updateBalance() {
+        // Anzeige des aktuellen Kontostands
+        const balanceElement = document.getElementById("balance");
+        balanceElement.innerText = balance;
+      }
+
+      function displayMessage(message) {
+        // Anzeige einer Nachricht
+        const messageElement = document.getElementById("message");
+        messageElement.innerText = message;
+      }
+    </script>
+  </body>
+</html>
