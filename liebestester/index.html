@@ -24,6 +24,8 @@
       var name1 = document.getElementById("name1").value;
       var name2 = document.getElementById("name2").value;
       var loveScore = Math.floor(Math.random() * 100);
+      if (name1 === "NAME1" && name2 === "NAME2") {
+        loveScore = 100;
       }
       document.getElementById("love-score").innerHTML = name1 + " and " + name2 + " have a love score of " + loveScore + "%";
     }
